@@ -1,10 +1,25 @@
-from Browser.driverController import DriverInitializer
-import time
+from selenium import webdriver
+
+from Browser.driverinitializer import DriverInitializer
+import Browser.gdrivecontroller as gdrive
+from Browser.gdrivepage import GdrivePageLocators as Address
+
+initializer = DriverInitializer()
+driver: webdriver = None
+
+URL = "https://drive.google.com/drive/folders/134nycFTxRcz6F4gj60nHbaOEuMmDjUvc?usp=sharing"
 
 
-driver = DriverInitializer()
-driver.start_with_existing_driver()
-driver = driver.start_driver()
+def start_with_existing_driver():
+    """Start with current browser"""
+    global driver
+    initializer.start_with_existing_driver()
+    driver = initializer.get_driver()
 
-driver.get("http://www.google.com")
-time.sleep(20)
+
+if __name__ == '__main__':
+    start_with_existing_driver()
+    gd = gdrive.GdriveController(driver)
+    gd.goto_url(URL)
+    gd.validate_on_gdrive_page()
+    gd.click_element(Address.ITEM1)
