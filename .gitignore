@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+.idea/workspace.xml
+.idea/sonarlint/
+*/__pycache__/
+/UserData/
+/venv
+/Testing
