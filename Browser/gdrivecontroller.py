@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from Browser.gdrivepage import Locator
@@ -43,3 +44,10 @@ class GdriveController:
     def click_element(self, element_locator: Locator) -> None:
         """Click on an element using custom locator style"""
         WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(element_locator)).click()
+
+    def upload_file(self, file_path: str) -> None:
+        """Upload a file to Google Drive"""
+        # For now only able to upload after manually upload a file to find the exact xpath
+        self.driver.find_element(By.XPATH, "//input[@type='file']").send_keys(file_path)
+        self.driver.find_element(By.XPATH, "//input[@type='submit']").click()
+        print("File uploaded : '" + file_path + "'")

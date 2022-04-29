@@ -18,8 +18,12 @@ def start_with_existing_driver():
 
 
 if __name__ == '__main__':
+    # Need to start with existing driver to access Google Drive upload functionality
     start_with_existing_driver()
     gd = gdrive.GdriveController(driver)
     gd.goto_url(URL)
     gd.validate_on_gdrive_page()
     gd.click_element(Address.ITEM1)
+
+    gd.upload_file("D:\Faiz\Projects\Selenium_Gdrive\.gitignore")
+
