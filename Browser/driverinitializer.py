@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -30,7 +32,7 @@ class DriverInitializer:
         else:
             print("Cannot user existing driver when other option used.")
 
-    # TODO - Start a driver that can be controlled with specific user directory
+    # TODO: Start a driver that can be controlled with specific user directory
 
     def start_headless_driver(self) -> None:
         if self.is_using_existing_driver is False:
@@ -55,5 +57,5 @@ class DriverInitializer:
     def start_remote_driver() -> None:
         """Start the normal remote driver via cmd"""
         pass
-        # TODO - Start remote driver (May need adiministrator privileges)
+        # TODO: Start remote driver (May need administrator privileges)
 

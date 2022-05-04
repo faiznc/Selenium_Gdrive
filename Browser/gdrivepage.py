@@ -15,3 +15,4 @@ class GdrivePageLocators:
 
     DRIVE_TEXT = Locator(By.CSS_SELECTOR, "span.gb_5d.gb_2c")
     ITEM1 = Locator(By.CSS_SELECTOR, "c-wiz > c-wiz > div > c-wiz:nth-child(1) > div > div")
+    DOWNLOAD_BTNs = Locator(By.XPATH, "//div/span[2]/span/div[@data-tooltip='Download']")

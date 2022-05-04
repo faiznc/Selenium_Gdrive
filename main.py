@@ -2,7 +2,6 @@ from selenium import webdriver
 
 from Browser.driverinitializer import DriverInitializer
 import Browser.gdrivecontroller as gdrive
-from Browser.gdrivepage import GdrivePageLocators as Address
 
 initializer = DriverInitializer()
 driver: webdriver = None
@@ -23,7 +22,7 @@ if __name__ == '__main__':
     gd = gdrive.GdriveController(driver)
     gd.goto_url(URL)
     gd.validate_on_gdrive_page()
-    gd.click_element(Address.ITEM1)
 
-    gd.upload_file("D:\Faiz\Projects\Selenium_Gdrive\.gitignore")
+    # gd.upload_file("D:\Faiz\Projects\Selenium_Gdrive\.gitignore")
+    gd.download_file("Capture.PNG")
 
